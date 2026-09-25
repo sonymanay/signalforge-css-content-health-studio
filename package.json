@@ -1,0 +1,14 @@
+{
+  "name": "signalforge-css-content-health-studio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "MCP-powered CSS content health dashboard for source, repo, article, and quality signal review.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
+

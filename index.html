@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SignalForge CSS Content Health Studio</title>
+  <script>
+    (() => {
+      const param = new URLSearchParams(window.location.search).get("scoutTheme");
+      const theme =
+        param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
+  <style>
+    :root {
+      color-scheme: light;
+      --cp-bg: #f7f4ef;
+      --cp-bg-elevated: #fcfbf8;
+      --cp-surface: #ffffff;
+      --cp-surface-soft: #f5f5f5;
+      --cp-border: #dedede;
+      --cp-border-strong: #919191;
+      --cp-text: #242424;
+      --cp-text-muted: #5c5c5c;
+      --cp-text-soft: #6f6f6f;
+      --cp-accent: #b11f4b;
+      --cp-accent-hover: #9a1a41;
+      --cp-accent-soft: rgba(177, 31, 75, 0.08);
+      --cp-accent-fg: #ffffff;
+      --cp-success: #16a34a;
+      --cp-danger: #dc2626;
+      --cp-warning: #f59e0b;
+      --cp-link: #0078d4;
+      --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.12);
+      --cp-overlay: rgba(255, 255, 255, 0.8);
+      --cp-panel: rgba(255, 255, 255, 0.86);
+      --cp-panel-strong: rgba(255, 255, 255, 0.96);
+      --cp-sheen: rgba(255, 255, 255, 0.55);
+      --cp-highlight: rgba(177, 31, 75, 0.12);
+    }
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --cp-bg: #3d3b3a;
+      --cp-bg-elevated: #343231;
+      --cp-surface: #292929;
+      --cp-surface-soft: #2e2e2e;
+      --cp-border: #474747;
+      --cp-border-strong: #5f5f5f;
+      --cp-text: #dedede;
+      --cp-text-muted: #919191;
+      --cp-text-soft: #b0b0b0;
+      --cp-accent: #fd8ea1;
+      --cp-accent-hover: #fb7b91;
+      --cp-accent-soft: rgba(253, 142, 161, 0.14);
+      --cp-accent-fg: #1a1a1a;
+      --cp-success: #4ade80;
+      --cp-danger: #f87171;
+      --cp-warning: #fbbf24;
+      --cp-link: #4da6ff;
+      --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
+      --cp-overlay: rgba(41, 41, 41, 0.88);
+      --cp-panel: rgba(41, 41, 41, 0.72);
+      --cp-panel-strong: rgba(41, 41, 41, 0.96);
+      --cp-sheen: rgba(255, 255, 255, 0.04);
+      --cp-highlight: rgba(253, 142, 161, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--cp-bg);
+      color: var(--cp-text);
+      font-family: "Segoe UI", Aptos, Calibri, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    .shell {
+      min-height: 100vh;
+      padding: 18px;
+    }
+
+    .hero {
+      display: block;
+      align-items: start;
+      margin-bottom: 10px;
+    }
+
+    .eyebrow {
+      color: var(--cp-accent);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      margin: 0 0 8px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(26px, 3vw, 38px);
+      line-height: 1;
+      margin: 0 0 8px;
+      max-width: 1040px;
+    }
+
+    .hero p {
+      color: var(--cp-text-muted);
+      font-size: 16px;
+      line-height: 1.5;
+      margin: 0;
+      max-width: 1040px;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-start;
+    }
+
+    .workspace-toolbar {
+      background: var(--cp-surface);
+      border: 1px solid var(--cp-border);
+      border-radius: 16px;
+      box-shadow: 0 0 2px var(--cp-border), 0 1px 2px var(--cp-border);
+      margin-bottom: 12px;
+      padding: 14px;
+    }
+
+    .toolbar-head {
+      align-items: center;
+      display: flex;
+      gap: 12px;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .toolbar-title {
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .filter-narrative {
+      color: var(--cp-text-muted);
+      font-size: 12px;
+    }
+
+    .filter-narrative.active {
+      color: var(--cp-accent);
+      font-weight: 750;
+    }
+
+    .chip,
+    .filter,
+    .button {
+      align-items: center;
+      background: var(--cp-surface);
+      border: 1px solid var(--cp-border);
+      border-radius: 0.625rem;
+      color: var(--cp-text);
+      display: inline-flex;
+      gap: 8px;
+      min-height: 40px;
+      padding: 8px 12px;
+    }
+
+    .button {
+      background: var(--cp-accent);
+      border-color: var(--cp-accent);
+      color: var(--cp-accent-fg);
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .button:hover {
+      background: var(--cp-accent-hover);
+      border-color: var(--cp-accent-hover);
+    }
+
+    .filter select,
+    .filter input {
+      background: transparent;
+      border: 0;
+      color: var(--cp-text);
+      min-width: 140px;
+      outline: none;
+    }
+
+    .filter select {
+      cursor: pointer;
+    }
+
+    .designer-summary {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      margin-bottom: 12px;
+    }
+
+    .designer-summary .summary-item {
+      background: var(--cp-surface);
+      border: 1px solid var(--cp-border);
+      border-radius: 0.625rem;
+      padding: 12px;
+    }
+
+    .designer-summary.filtered .summary-item {
+      background: var(--cp-accent-soft);
+      border-color: var(--cp-accent);
+    }
+
+    .summary-item strong {
+      display: block;
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    .summary-item span {
+      color: var(--cp-text-muted);
+      display: block;
+      font-size: 12px;
+      margin-top: 5px;
+    }
+
+    .query-filter input {
+      min-width: min(420px, 72vw);
+    }
+
+    a {
+      color: var(--cp-link);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .status-banner {
+      background: var(--cp-accent-soft);
+      border: 1px solid var(--cp-border);
+      border-radius: 0.625rem;
+      color: var(--cp-text-muted);
+      font-size: 13px;
+      line-height: 1.45;
+      margin-bottom: 12px;
+      padding: 12px 14px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .metrics {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin-bottom: 16px;
+    }
+
+    .main {
+      align-items: start;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 360px);
+    }
+
+    aside.grid {
+      position: sticky;
+      top: 12px;
+    }
+
+    .card {
+      background: var(--cp-surface);
+      border: 1px solid var(--cp-border);
+      border-radius: 16px;
+      box-shadow: 0 0 2px var(--cp-border), 0 1px 2px var(--cp-border);
+      overflow: hidden;
+    }
+
+    .card-header {
+      align-items: flex-start;
+      border-bottom: 1px solid var(--cp-border);
+      display: flex;
+      gap: 12px;
+      justify-content: space-between;
+      padding: 14px 16px;
+    }
+
+    .card-title {
+      font-size: 17px;
+      font-weight: 750;
+      margin: 0 0 4px;
+    }
+
+    .card-subtitle {
+      color: var(--cp-text-muted);
+      font-size: 13px;
+      line-height: 1.4;
+      margin: 0;
+    }
+
+    .card-body {
+      padding: 14px;
+    }
+
+    .metric {
+      padding: 14px;
+    }
+
+    .metric-label {
+      color: var(--cp-text-muted);
+      font-size: 13px;
+      font-weight: 650;
+      margin: 0 0 10px;
+    }
+
+    .metric-value {
+      font-size: 30px;
+      font-weight: 800;
+      line-height: 1;
+      margin: 0;
+    }
+
+    .metric-note {
+      color: var(--cp-text-soft);
+      font-size: 12px;
+      margin: 10px 0 0;
+    }
+
+    .delta {
+      color: var(--cp-success);
+      font-weight: 700;
+    }
+
+    .delta.warn {
+      color: var(--cp-warning);
+    }
+
+    .delta.danger {
+      color: var(--cp-danger);
+    }
+
+    .source-grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .source-card {
+      background: var(--cp-surface-soft);
+      border: 1px solid var(--cp-border);
+      border-radius: 0.625rem;
+      padding: 14px;
+    }
+
+    .source-head {
+      align-items: center;
+      display: flex;
+      gap: 10px;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .source-name {
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    .badge {
+      border: 1px solid var(--cp-border);
+      border-radius: 999px;
+      color: var(--cp-text-muted);
+      display: inline-flex;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 8px;
+    }
+
+    .badge.good {
+      border-color: var(--cp-success);
+      color: var(--cp-success);
+    }
+
+    .badge.warn {
+      border-color: var(--cp-warning);
+      color: var(--cp-warning);
+    }
+
+    .badge.danger {
+      border-color: var(--cp-danger);
+      color: var(--cp-danger);
+    }
+
+    .bar {
+      background: var(--cp-border);
+      border-radius: 999px;
+      height: 10px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .bar span {
+      background: var(--cp-accent);
+      border-radius: inherit;
+      display: block;
+      height: 100%;
+      width: var(--value);
+    }
+
+    .source-meta {
+      color: var(--cp-text-muted);
+      display: grid;
+      font-size: 12px;
+      gap: 6px;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 12px;
+    }
+
+    .source-meta strong {
+      color: var(--cp-text);
+      display: block;
+      font-size: 15px;
+    }
+
+    .health-row,
+    .action-row {
+      align-items: center;
+      border-bottom: 1px solid var(--cp-border);
+      display: grid;
+      gap: 12px;
+      grid-template-columns: 1.15fr 0.5fr 0.52fr 0.8fr 1.35fr;
+      padding: 12px 18px;
+    }
+
+    .health-row:last-child,
+    .action-row:last-child {
+      border-bottom: 0;
+    }
+
+    .health-row.header {
+      color: var(--cp-text-muted);
+      font-size: 12px;
+      font-weight: 750;
+      text-transform: uppercase;
+    }
+
+    .page-title {
+      font-weight: 750;
+    }
+
+    .small {
+      color: var(--cp-text-muted);
+      font-size: 12px;
+      margin-top: 3px;
+    }
+
+    .risk {
+      align-items: center;
+      display: inline-flex;
+      gap: 8px;
+    }
+
+    .explain-list {
+      color: var(--cp-text-muted);
+      font-size: 12px;
+      line-height: 1.35;
+      margin: 6px 0 0;
+      padding-left: 16px;
+    }
+
+    .explain-list li + li {
+      margin-top: 3px;
+    }
+
+    .definition-grid {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .dot {
+      background: var(--cp-success);
+      border-radius: 999px;
+      display: inline-block;
+      height: 10px;
+      width: 10px;
+    }
+
+    .dot.warn {
+      background: var(--cp-warning);
+    }
+
+    .dot.danger {
+      background: var(--cp-danger);
+    }
+
+    .connector {
+      display: grid;
+      gap: 12px;
+    }
+
+    .connector-step {
+      align-items: center;
+      background: var(--cp-surface-soft);
+      border: 1px solid var(--cp-border);
+      border-radius: 0.625rem;
+      display: grid;
+      gap: 10px;
+      grid-template-columns: 42px 1fr auto;
+      padding: 12px;
+    }
+
+    .node {
+      align-items: center;
+      background: var(--cp-accent-soft);
+      border: 1px solid var(--cp-border);
+      border-radius: 0.625rem;
+      color: var(--cp-accent);
+      display: inline-flex;
+      font-weight: 850;
+      height: 42px;
+      justify-content: center;
+      width: 42px;
+    }
+
+    .priority-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .action-row {
+      background: var(--cp-surface-soft);
+      border: 1px solid var(--cp-border);
+      border-radius: 0.625rem;
+      grid-template-columns: 1fr auto;
+      padding: 14px;
+    }
+
+    .action-row + .action-row {
+      border-bottom: 1px solid var(--cp-border);
+    }
+
+    .pill {
+      background: var(--cp-accent-soft);
+      border: 1px solid var(--cp-border);
+      border-radius: 999px;
+      color: var(--cp-accent);
+      font-size: 12px;
+      font-weight: 800;
+      padding: 6px 10px;
+      white-space: nowrap;
+    }
+
+    .segments {
+      display: grid;
+      gap: 8px;
+      grid-template-columns: repeat(7, 1fr);
+    }
+
+    .benchmark-grid {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .tracked-grid {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .repo-grid {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .benchmark-card,
+    .destination-card,
+    .tracked-card,
+    .repo-card {
+      background: var(--cp-surface-soft);
+      border: 1px solid var(--cp-border);
+      border-radius: 0.625rem;
+      padding: 12px;
+    }
+
+    .benchmark-card strong,
+    .tracked-card strong {
+      display: block;
+      font-size: 24px;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .benchmark-card span,
+    .destination-card span,
+    .tracked-card span {
+      color: var(--cp-text-muted);
+      display: block;
+      font-size: 12px;
+      line-height: 1.35;
+      margin-top: 4px;
+    }
+
+    .signal-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .article-row {
+      border-bottom: 1px solid var(--cp-border);
+      display: grid;
+      gap: 12px;
+      grid-template-columns: 1.25fr 0.45fr 0.55fr 0.55fr 0.55fr 0.6fr 0.7fr;
+      padding: 10px 14px;
+    }
+
+    #articleInventory {
+      max-height: 620px;
+      overflow: auto;
+    }
+
+    #topQualityArticles {
+      max-height: 320px;
+      overflow: auto;
+    }
+
+    .article-row.header {
+      color: var(--cp-text-muted);
+      font-size: 12px;
+      font-weight: 750;
+      text-transform: uppercase;
+    }
+
+    .sort-button {
+      background: transparent;
+      border: 0;
+      color: var(--cp-text-muted);
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 750;
+      padding: 0;
+      text-align: left;
+      text-transform: uppercase;
+    }
+
+    .sort-button:hover {
+      color: var(--cp-accent);
+    }
+
+    .article-row:last-child {
+      border-bottom: 0;
+    }
+
+    .segment {
+      background: var(--cp-surface-soft);
+      border: 1px solid var(--cp-border);
+      border-radius: 0.625rem;
+      min-height: 76px;
+      padding: 10px;
+    }
+
+    .segment strong {
+      display: block;
+      font-size: 19px;
+      margin-bottom: 3px;
+    }
+
+    .segment span {
+      color: var(--cp-text-muted);
+      font-size: 11px;
+    }
+
+    .segment.good {
+      border-color: var(--cp-success);
+    }
+
+    .segment.warn {
+      border-color: var(--cp-warning);
+    }
+
+    .segment.danger {
+      border-color: var(--cp-danger);
+    }
+
+    .footer-note {
+      color: var(--cp-text-muted);
+      font-size: 12px;
+      line-height: 1.5;
+      margin: 16px 0 0;
+    }
+
+    @media (max-width: 1100px) {
+      .hero,
+      .main,
+      .metrics,
+      .designer-summary {
+        grid-template-columns: 1fr;
+      }
+
+      .controls {
+        justify-content: flex-start;
+      }
+
+      .source-grid,
+      .segments,
+      .benchmark-grid,
+      .tracked-grid,
+      .repo-grid,
+      .definition-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .health-row,
+      .article-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Designer view · MCP-powered content intelligence</p>
+        <h1>SignalForge CSS Content Health Studio</h1>
+        <p>Filter live MCP articles by source or repo, then review quality, freshness, state, links, and action paths.</p>
+      </div>
+    </section>
+
+    <div class="status-banner" id="connectionStatus">Loading MCP source data through the local connector...</div>
+    <section class="workspace-toolbar" aria-label="Dashboard review controls">
+      <div class="toolbar-head">
+        <div>
+          <div class="toolbar-title">Review controls</div>
+          <div class="filter-narrative" id="filterNarrative">Showing all retrieved articles.</div>
+        </div>
+        <button class="button" id="refreshButton" type="button">Refresh MCP signals</button>
+      </div>
+      <div class="controls">
+        <label class="filter">Source
+          <select id="sourceFilter">
+            <option value="All">All sources</option>
+          </select>
+        </label>
+        <label class="filter">Repo
+          <select id="repoFilter">
+            <option value="All">All repos</option>
+          </select>
+        </label>
+        <label class="filter">Sort
+          <select id="sortFilter">
+            <option value="qualityDesc">Quality high to low</option>
+            <option value="pageViewsDesc">Page views high to low</option>
+            <option value="qualityAsc">Quality low to high</option>
+            <option value="sourceAsc">Source A to Z</option>
+            <option value="repoAsc">Repo A to Z</option>
+            <option value="freshnessAsc">Freshness risk first</option>
+            <option value="stateAsc">State A to Z</option>
+          </select>
+        </label>
+        <label class="filter query-filter">Topic
+          <input id="queryInput" type="search" value="Microsoft 365 support known issues escalation troubleshooting customer support content">
+        </label>
+      </div>
+    </section>
+    <section class="designer-summary" aria-label="Filtered designer metrics">
+      <div class="summary-item"><strong id="filteredArticles">0</strong><span>filtered articles</span></div>
+      <div class="summary-item"><strong id="filteredRepos">0</strong><span>matching repos</span></div>
+      <div class="summary-item"><strong id="filteredPageViews">0</strong><span>page-view signal</span></div>
+      <div class="summary-item"><strong id="filteredQuality">0%</strong><span>avg quality</span></div>
+      <div class="summary-item"><strong id="filteredBrokenLinks">0</strong><span>broken or unchecked links</span></div>
+    </section>
+
+    <section class="grid metrics" aria-label="Content health metrics">
+      <article class="card metric">
+        <p class="metric-label">Overall content health</p>
+        <p class="metric-value" id="healthScore">78%</p>
+        <p class="metric-note" id="healthNote"><span class="delta">Live</span> computed from MCP source results</p>
+      </article>
+      <article class="card metric">
+        <p class="metric-label">Needs action</p>
+        <p class="metric-value" id="needsAction">42</p>
+        <p class="metric-note" id="needsActionNote"><span class="delta danger">Calculated</span> from stale, critical, and metadata gaps</p>
+      </article>
+      <article class="card metric">
+        <p class="metric-label">Freshness signal</p>
+        <p class="metric-value" id="freshnessScore">84%</p>
+        <p class="metric-note" id="freshnessNote"><span class="delta warn">Uses Last Updated</span> where exposed by source content</p>
+      </article>
+      <article class="card metric">
+        <p class="metric-label">MCP connector state</p>
+        <p class="metric-value" id="connectorState">4/4</p>
+        <p class="metric-note" id="connectorNote"><span class="delta">Checking</span> source MCP endpoints</p>
+      </article>
+    </section>
+
+    <section class="grid main">
+      <div class="grid">
+        <article class="card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">Source system health</h2>
+              <p class="card-subtitle">MCP normalizes signals from each source into freshness, trust, usage, and actionability scores.</p>
+            </div>
+            <span class="badge good">Live model</span>
+          </div>
+          <div class="card-body">
+            <div class="source-grid" id="sourceGrid"></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">CSS journey heatmap</h2>
+              <p class="card-subtitle">A fast scan of where CSS users are most likely to encounter stale or unclear content.</p>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="segments" id="journeySegments"></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">Live MCP tracked metrics</h2>
+              <p class="card-subtitle">Live values derived from connected MCP source results, with gaps called out where page-view or cost telemetry is not exposed by MCP.</p>
+            </div>
+            <span class="badge good">MCP live</span>
+          </div>
+          <div class="card-body">
+            <div class="tracked-grid" id="mcpTrackedMetrics"></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">All articles retrieved from MCP</h2>
+              <p class="card-subtitle">Primary review pane with clickable articles, selected filter context, and sortable quality signals.</p>
+            </div>
+            <span class="badge good" id="articleCountBadge">0 articles</span>
+          </div>
+          <div id="articleInventory"></div>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">Source and repo health</h2>
+              <p class="card-subtitle">Repo/source rollup from retrieved MCP articles using quality score, freshness, state, and link health.</p>
+            </div>
+            <span class="badge good" id="repoCountBadge">0 repos</span>
+          </div>
+          <div class="card-body">
+            <div class="repo-grid" id="repoHealth"></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">Highest quality retrieved articles</h2>
+              <p class="card-subtitle">Best-scoring live MCP articles by metadata completeness, freshness, actionability, state, and link status.</p>
+            </div>
+          </div>
+          <div id="topQualityArticles"></div>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">High-impact content needing attention</h2>
+              <p class="card-subtitle">Identified from MCP source results using relevance, missing freshness metadata, actionability terms, known-issue/case-support language, and source health score.</p>
+            </div>
+          </div>
+          <div id="contentTable"></div>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">How to read the action labels</h2>
+              <p class="card-subtitle">Plain-language meaning for the actions shown in the high-impact queue.</p>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="definition-grid">
+              <section class="destination-card">
+                <div class="page-title">Add freshness signal</div>
+                <span>Add or expose Last Updated, next review date, owner, and freshness SLA so users know if the page is current.</span>
+              </section>
+              <section class="destination-card">
+                <div class="page-title">Validate accuracy</div>
+                <span>Ask the content owner or SME to confirm that guidance matches current product behavior and support process.</span>
+              </section>
+              <section class="destination-card">
+                <div class="page-title">Improve actionability</div>
+                <span>Rewrite the content so CSS users have a clear next step, resolution path, escalation route, or handoff.</span>
+              </section>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <aside class="grid">
+        <article class="card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">MCP connector flow</h2>
+              <p class="card-subtitle">Connector role and transformation stages.</p>
+            </div>
+          </div>
+          <div class="card-body connector">
+            <div class="connector-step">
+              <div class="node">1</div>
+              <div>
+                <div class="page-title">Ingest source systems</div>
+                <div class="small">LMC, SMC, Evergreen, CSS Wiki</div>
+              </div>
+              <span class="badge good">OK</span>
+            </div>
+            <div class="connector-step">
+              <div class="node">2</div>
+              <div>
+                <div class="page-title">Normalize metadata</div>
+                <div class="small">Owner, persona, journey, last reviewed, duplicate cluster</div>
+              </div>
+              <span class="badge good">OK</span>
+            </div>
+            <div class="connector-step">
+              <div class="node">3</div>
+              <div>
+                <div class="page-title">Score health</div>
+                <div class="small">Freshness, accuracy, usefulness, findability, actionability</div>
+              </div>
+              <span class="badge warn">Watch</span>
+            </div>
+            <div class="connector-step">
+              <div class="node">4</div>
+              <div>
+                <div class="page-title">Route action</div>
+                <div class="small">Content owner backlog, review queue, retirement candidates</div>
+              </div>
+              <span class="badge good">OK</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">Recommended actions</h2>
+              <p class="card-subtitle">What the CSS content team should do next.</p>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="priority-list" id="actions"></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">Where users take action</h2>
+              <p class="card-subtitle">Route each health finding into the right Content Hub, Rubik, Content Mentor, PR, or ADO workflow.</p>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="priority-list" id="actionDestinations"></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">Health model</h2>
+              <p class="card-subtitle">Suggested scoring dimensions for the first MCP-backed release.</p>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="priority-list">
+              <div class="action-row"><div><div class="page-title">Freshness</div><div class="small">Last reviewed, source update age, policy drift.</div></div><span class="pill">25%</span></div>
+              <div class="action-row"><div><div class="page-title">Accuracy</div><div class="small">Contradictions, SME confidence, known issue links.</div></div><span class="pill">25%</span></div>
+              <div class="action-row"><div><div class="page-title">Usage signal</div><div class="small">Views, failed searches, case deflection, escalations.</div></div><span class="pill">20%</span></div>
+              <div class="action-row"><div><div class="page-title">Findability</div><div class="small">Search rank, metadata quality, duplicate overlap.</div></div><span class="pill">15%</span></div>
+              <div class="action-row"><div><div class="page-title">Actionability</div><div class="small">Clear next step, owner, workflow, resolution path.</div></div><span class="pill">15%</span></div>
+            </div>
+          </div>
+        </article>
+      </aside>
+    </section>
+
+    <p class="footer-note">Run with <code>node content-health-dashboard-server.js</code> to use live MCP data. Evergreen and CSS Wiki may require environment variables for authorization or endpoint configuration.</p>
+  </main>
+
+  <script>
+    let sources = [
+      { name: "LMC", status: "Healthy", className: "good", score: 86, pages: 418, stale: 28, critical: 3, sync: "8 min ago" },
+      { name: "SMC", status: "Watch", className: "warn", score: 74, pages: 263, stale: 41, critical: 5, sync: "12 min ago" },
+      { name: "Evergreen", status: "Watch", className: "warn", score: 71, pages: 194, stale: 37, critical: 2, sync: "17 min ago" },
+      { name: "CSS Wiki", status: "At risk", className: "danger", score: 62, pages: 721, stale: 119, critical: 12, sync: "22 min ago" }
+    ];
+
+    let journeys = [
+      { name: "Onboarding", score: 88, className: "good" },
+      { name: "Case triage", score: 69, className: "warn" },
+      { name: "Known issues", score: 58, className: "danger" },
+      { name: "Escalation", score: 73, className: "warn" },
+      { name: "Policy lookup", score: 81, className: "good" },
+      { name: "Resolution", score: 76, className: "warn" },
+      { name: "Handoff", score: 64, className: "danger" }
+    ];
+
+    let contentItems = [
+      { title: "Known issue workflow for CSS escalations", source: "CSS Wiki", owner: "Escalation Ops", risk: "Critical", riskClass: "danger", action: "Refresh and dedupe", actionMeaning: "Remove duplicate guidance and keep one current source of truth.", impact: "High case volume", evidence: ["Flagged from CSS Wiki source health and known-issue signal."] },
+      { title: "SMC triage routing matrix", source: "SMC", owner: "Support Readiness", risk: "High", riskClass: "warn", action: "Validate accuracy", actionMeaning: "Have an SME confirm that routing guidance is still current.", impact: "Conflicting guidance", evidence: ["Flagged from SMC source health and support workflow language."] },
+      { title: "Evergreen change log for policy updates", source: "Evergreen", owner: "Content Governance", risk: "High", riskClass: "warn", action: "Add freshness signal", actionMeaning: "Add Last Updated, next review date, owner, and SLA metadata.", impact: "Missing freshness signal", evidence: ["Flagged because freshness metadata is missing."] },
+      { title: "LMC troubleshooting quick path", source: "LMC", owner: "CSS Enablement", risk: "Medium", riskClass: "good", action: "Improve actionability", actionMeaning: "Make the next step and resolution path clearer for CSS users.", impact: "Low search rank", evidence: ["Flagged from LMC relevance and actionability scoring."] }
+    ];
+
+    let actions = [
+      { label: "Review CSS Wiki critical pages", detail: "Start with stale pages that also appear in SMC or LMC duplicate clusters.", tag: "Today" },
+      { label: "Create owner gaps report", detail: "Route unowned or expired pages to accountable content owners.", tag: "This week" },
+      { label: "Tune MCP scoring thresholds", detail: "Separate stale-but-low-use pages from high-impact broken guidance.", tag: "Next sprint" },
+      { label: "Add persona journey tags", detail: "Tag content by CSS user journey so the dashboard can show where action is needed.", tag: "Next sprint" }
+    ];
+
+    let contentHub = {
+      actionDestinations: [
+        { name: "Rubik", action: "Create or update articles and submit downstream PRs", useWhen: "New content or major rewrite is needed" },
+        { name: "Content Mentor", action: "Select content, improve it, and publish through guided workflows", useWhen: "Assisted authoring or publishing is needed" }
+      ]
+    };
+
+    let mcpTrackedMetrics = [
+      { label: "Page views", status: "MCP proxy", value: "Loading", detail: "MCP source result count will load from the connector.", source: "MCP" },
+      { label: "Page-view quality", status: "MCP proxy", value: "Loading", detail: "Quality proxy will load from metadata and actionability scores.", source: "MCP" },
+      { label: "Cost avoidance", status: "Telemetry needed", value: "Loading", detail: "MCP can identify deflection candidates; actual avoided cost needs Content Hub telemetry.", source: "MCP + Content Hub" },
+      { label: "Content opportunities", status: "MCP live", value: "Loading", detail: "Opportunity count will load from freshness and actionability gaps.", source: "MCP" },
+      { label: "Traffic sources", status: "MCP source attribution", value: "Loading", detail: "MCP source coverage will load from connected sources.", source: "MCP" }
+    ];
+
+    let repoHealth = [];
+    let articleInventory = [];
+    let topQualityArticles = [];
+    let dashboardFilters = {
+      source: "All",
+      repo: "All",
+      sort: "qualityDesc"
+    };
+
+    function escapeHtml(value) {
+      return String(value ?? "").replace(/[&<>"']/g, (char) => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        "\"": "&quot;",
+        "'": "&#39;"
+      }[char]));
+    }
+
+    function renderSources() {
+      const grid = document.getElementById("sourceGrid");
+      grid.innerHTML = sources.map((source) => `
+        <section class="source-card">
+          <div class="source-head">
+            <div class="source-name">${escapeHtml(source.name)}</div>
+            <span class="badge ${source.className}">${escapeHtml(source.status)}</span>
+          </div>
+          <div class="bar" aria-label="${source.name} health ${source.score}%">
+            <span style="--value: ${source.score}%"></span>
+          </div>
+          <div class="source-meta">
+            <span><strong>${source.score}%</strong>health</span>
+            <span><strong>${source.stale}</strong>stale</span>
+            <span><strong>${source.critical}</strong>critical</span>
+          </div>
+          <div class="small">MCP sync: ${escapeHtml(source.sync)} · ${source.pages} items indexed</div>
+          <div class="small">${escapeHtml(source.tool || "search tool")} · ${source.connected ? "connected" : "not connected"}</div>
+        </section>
+      `).join("");
+    }
+
+    function renderJourneys() {
+      const container = document.getElementById("journeySegments");
+      container.innerHTML = journeys.map((journey) => `
+        <section class="segment ${journey.className}">
+          <strong>${journey.score}%</strong>
+          <span>${escapeHtml(journey.name)}</span>
+        </section>
+      `).join("");
+    }
+
+    function renderContentTable() {
+      const table = document.getElementById("contentTable");
+      table.innerHTML = `
+        <div class="health-row header">
+          <div>Content</div><div>Source</div><div>Risk</div><div>Why flagged</div><div>Action meaning</div>
+        </div>
+        ${contentItems.map((item) => `
+          <div class="health-row">
+            <div><div class="page-title">${item.url ? `<a href="${escapeHtml(item.url)}" target="_blank" rel="noreferrer">${escapeHtml(item.title)}</a>` : escapeHtml(item.title)}</div><div class="small">Owner: ${escapeHtml(item.owner)} · ${escapeHtml(item.impact)}</div></div>
+            <div><span class="pill">${escapeHtml(item.source)}</span></div>
+            <div class="risk"><span class="dot ${item.riskClass}"></span>${escapeHtml(item.risk)}</div>
+            <div>
+              <div class="small">${escapeHtml(item.identifiedBy || "MCP relevance, health, freshness, and actionability scoring")}</div>
+              <ul class="explain-list">${(item.evidence || []).slice(0, 3).map((entry) => `<li>${escapeHtml(entry)}</li>`).join("")}</ul>
+            </div>
+            <div><span class="pill">${escapeHtml(item.action)}</span><div class="small">${escapeHtml(item.actionMeaning || "Review the finding and route it to the right action workflow.")}</div></div>
+          </div>
+        `).join("")}
+      `;
+    }
+
+    function renderActions() {
+      const list = document.getElementById("actions");
+      list.innerHTML = actions.map((action) => `
+        <div class="action-row">
+          <div>
+            <div class="page-title">${escapeHtml(action.label)}</div>
+            <div class="small">${escapeHtml(action.detail)}</div>
+          </div>
+          <span class="pill">${escapeHtml(action.tag)}</span>
+        </div>
+      `).join("");
+    }
+
+    function renderContentHub() {
+      const destinations = document.getElementById("actionDestinations");
+      destinations.innerHTML = (contentHub.actionDestinations || []).map((destination) => `
+        <section class="destination-card">
+          <div class="source-head">
+            <div class="page-title">${escapeHtml(destination.name)}</div>
+            <span class="pill">${escapeHtml(destination.useWhen)}</span>
+          </div>
+          <div>${escapeHtml(destination.action)}</div>
+        </section>
+      `).join("");
+    }
+
+    function renderMcpTrackedMetrics() {
+      const container = document.getElementById("mcpTrackedMetrics");
+      container.innerHTML = mcpTrackedMetrics.map((metric) => `
+        <section class="tracked-card">
+          <div class="source-head">
+            <div>
+              <strong>${escapeHtml(metric.value)}</strong>
+              <div class="page-title">${escapeHtml(metric.label)}</div>
+            </div>
+            <span class="badge ${metric.status === "MCP live" ? "good" : metric.status === "Telemetry needed" ? "warn" : ""}">${escapeHtml(metric.status)}</span>
+          </div>
+          <span>${escapeHtml(metric.detail)}</span>
+          <span>Source: ${escapeHtml(metric.source)}</span>
+        </section>
+      `).join("");
+    }
+
+    function linkForArticle(article) {
+      return article.url
+        ? `<a href="${escapeHtml(article.url)}" target="_blank" rel="noreferrer">${escapeHtml(article.title)}</a>`
+        : escapeHtml(article.title);
+    }
+
+    function freshnessRank(value) {
+      return { Missing: 0, Stale: 1, Aging: 2, Current: 3 }[value] ?? 4;
+    }
+
+    function sortedArticles(rows) {
+      return [...rows].sort((a, b) => {
+        if (dashboardFilters.sort === "pageViewsDesc") return (b.pageViewScore ?? 0) - (a.pageViewScore ?? 0) || b.qualityScore - a.qualityScore;
+        if (dashboardFilters.sort === "qualityAsc") return a.qualityScore - b.qualityScore;
+        if (dashboardFilters.sort === "sourceAsc") return a.source.localeCompare(b.source) || a.repo.localeCompare(b.repo);
+        if (dashboardFilters.sort === "repoAsc") return a.repo.localeCompare(b.repo) || b.qualityScore - a.qualityScore;
+        if (dashboardFilters.sort === "freshnessAsc") return freshnessRank(a.freshness) - freshnessRank(b.freshness) || b.qualityScore - a.qualityScore;
+        if (dashboardFilters.sort === "stateAsc") return a.state.localeCompare(b.state) || b.qualityScore - a.qualityScore;
+        return b.qualityScore - a.qualityScore;
+      });
+    }
+
+    function filteredArticles() {
+      return sortedArticles(articleInventory.filter((article) => {
+        const sourceMatch = dashboardFilters.source === "All" || article.source === dashboardFilters.source;
+        const repoMatch = dashboardFilters.repo === "All" || article.repo === dashboardFilters.repo;
+        return sourceMatch && repoMatch;
+      }));
+    }
+
+    function filteredRepos() {
+      const visibleArticles = filteredArticles();
+      const keys = new Set(visibleArticles.map((article) => `${article.source}|${article.repo}`));
+      return repoHealth.filter((repo) => keys.has(`${repo.source}|${repo.repo}`));
+    }
+
+    function setSelectOptions(selectId, values, allLabel, currentValue) {
+      const select = document.getElementById(selectId);
+      const options = ["All", ...values].map((value) => {
+        const label = value === "All" ? allLabel : value;
+        const selected = value === currentValue ? "selected" : "";
+        return `<option value="${escapeHtml(value)}" ${selected}>${escapeHtml(label)}</option>`;
+      }).join("");
+      select.innerHTML = options;
+    }
+
+    function renderFilterOptions() {
+      const sourcesForOptions = [...new Set(articleInventory.map((article) => article.source))].sort();
+      const reposForOptions = [...new Set(articleInventory
+        .filter((article) => dashboardFilters.source === "All" || article.source === dashboardFilters.source)
+        .map((article) => article.repo)
+      )].sort();
+
+      if (dashboardFilters.source !== "All" && !sourcesForOptions.includes(dashboardFilters.source)) {
+        dashboardFilters.source = "All";
+      }
+      if (dashboardFilters.repo !== "All" && !reposForOptions.includes(dashboardFilters.repo)) {
+        dashboardFilters.repo = "All";
+      }
+
+      setSelectOptions("sourceFilter", sourcesForOptions, "All sources", dashboardFilters.source);
+      setSelectOptions("repoFilter", reposForOptions, "All repos", dashboardFilters.repo);
+      document.getElementById("sortFilter").value = dashboardFilters.sort;
+    }
+
+    function renderDesignerSummary() {
+      const rows = filteredArticles();
+      const repos = new Set(rows.map((article) => `${article.source}|${article.repo}`));
+      const avgQuality = rows.length
+        ? Math.round(rows.reduce((total, article) => total + article.qualityScore, 0) / rows.length)
+        : 0;
+      const realPageViews = rows.filter((article) => Number.isFinite(article.pageViews));
+      const pageViewSignal = realPageViews.length
+        ? realPageViews.reduce((total, article) => total + article.pageViews, 0).toLocaleString()
+        : `${rows.length} MCP proxy`;
+      const brokenLinks = rows.filter((article) => article.linkState !== "OK").length;
+      const isFiltered =
+        dashboardFilters.source !== "All" ||
+        dashboardFilters.repo !== "All" ||
+        dashboardFilters.sort !== "qualityDesc";
+      const sortLabels = {
+        qualityDesc: "quality high to low",
+        pageViewsDesc: "page views high to low",
+        qualityAsc: "quality low to high",
+        sourceAsc: "source A to Z",
+        repoAsc: "repo A to Z",
+        freshnessAsc: "freshness risk first",
+        stateAsc: "state A to Z"
+      };
+      document.getElementById("filteredArticles").textContent = rows.length;
+      document.getElementById("filteredRepos").textContent = repos.size;
+      document.getElementById("filteredPageViews").textContent = pageViewSignal;
+      document.getElementById("filteredQuality").textContent = `${avgQuality}%`;
+      document.getElementById("filteredBrokenLinks").textContent = brokenLinks;
+      document.querySelector(".designer-summary").classList.toggle("filtered", isFiltered);
+      const narrative = document.getElementById("filterNarrative");
+      narrative.classList.toggle("active", isFiltered);
+      narrative.textContent = `Showing ${rows.length} articles across ${repos.size} repos · source: ${dashboardFilters.source === "All" ? "all" : dashboardFilters.source} · repo: ${dashboardFilters.repo === "All" ? "all" : dashboardFilters.repo} · sorted by ${sortLabels[dashboardFilters.sort]}.`;
+    }
+
+    function renderRepoHealth() {
+      const container = document.getElementById("repoHealth");
+      const badge = document.getElementById("repoCountBadge");
+      const visibleRepos = filteredRepos();
+      badge.textContent = `${visibleRepos.length} repos`;
+      container.innerHTML = visibleRepos.map((repo) => `
+        <section class="repo-card">
+          <div class="source-head">
+            <div>
+              <div class="page-title">${escapeHtml(repo.repo)}</div>
+              <div class="small">${escapeHtml(repo.source)} · ${repo.articles} articles</div>
+            </div>
+            <span class="badge ${repo.className}">${escapeHtml(repo.status)}</span>
+          </div>
+          <div class="bar" aria-label="${repo.repo} quality ${repo.qualityScore}%">
+            <span style="--value: ${repo.qualityScore}%"></span>
+          </div>
+          <div class="source-meta">
+            <span><strong>${repo.qualityScore}%</strong>quality</span>
+            <span><strong>${repo.fresh}</strong>fresh</span>
+            <span><strong>${repo.brokenLinks}</strong>broken</span>
+          </div>
+          <div class="small">Stale/missing freshness: ${repo.staleOrMissing} · State: ${escapeHtml(repo.stateSummary || "None")}</div>
+        </section>
+      `).join("");
+    }
+
+    function renderArticleRows(containerId, rows) {
+      const container = document.getElementById(containerId);
+      container.innerHTML = `
+        <div class="article-row header">
+          <div>Article</div>
+          <div><button class="sort-button" type="button" data-sort="sourceAsc">Source</button></div>
+          <div><button class="sort-button" type="button" data-sort="repoAsc">Repo</button></div>
+          <div><button class="sort-button" type="button" data-sort="pageViewsDesc">Page views</button></div>
+          <div><button class="sort-button" type="button" data-sort="qualityDesc">Quality</button></div>
+          <div><button class="sort-button" type="button" data-sort="freshnessAsc">Freshness</button></div>
+          <div><button class="sort-button" type="button" data-sort="stateAsc">State / Link</button></div>
+        </div>
+        ${rows.map((article) => `
+          <div class="article-row">
+            <div>
+              <div class="page-title">${linkForArticle(article)}</div>
+              <div class="small">${escapeHtml(article.excerpt || "")}</div>
+            </div>
+            <div><span class="pill">${escapeHtml(article.source)}</span></div>
+            <div>${escapeHtml(article.repo)}</div>
+            <div><strong>${escapeHtml(article.pageViewDisplay || "n/a")}</strong><div class="small">${escapeHtml(article.pageViewSource || "Not exposed")}</div></div>
+            <div><strong>${article.qualityScore}%</strong><div class="small">${escapeHtml(article.metadata)} · ${escapeHtml(article.actionability)}</div></div>
+            <div>${escapeHtml(article.freshness)}<div class="small">${escapeHtml(article.lastUpdated)}</div></div>
+            <div>${escapeHtml(article.state)}<div class="small">Link: ${escapeHtml(article.linkState)}</div></div>
+          </div>
+        `).join("")}
+      `;
+    }
+
+    function renderArticleInventory() {
+      const rows = filteredArticles();
+      const topRows = [...rows].sort((a, b) => b.qualityScore - a.qualityScore).slice(0, 5);
+      document.getElementById("articleCountBadge").textContent = `${rows.length} articles`;
+      renderArticleRows("topQualityArticles", topRows);
+      renderArticleRows("articleInventory", rows);
+      document.querySelectorAll(".sort-button").forEach((button) => {
+        button.addEventListener("click", () => {
+          dashboardFilters.sort = button.dataset.sort;
+          document.getElementById("sortFilter").value = dashboardFilters.sort;
+          renderArticleInventory();
+          renderRepoHealth();
+          renderDesignerSummary();
+        });
+      });
+      renderDesignerSummary();
+    }
+
+    function updateMetrics(metrics) {
+      document.getElementById("healthScore").textContent = `${metrics.overallHealth}%`;
+      document.getElementById("needsAction").textContent = metrics.needsAction;
+      document.getElementById("freshnessScore").textContent = `${metrics.freshness}%`;
+      document.getElementById("connectorState").textContent = metrics.connectorState;
+      document.getElementById("healthNote").innerHTML = `<span class="delta">Live</span> ${metrics.articles || 0} articles · ${metrics.repos || 0} repos · metadata ${metrics.metadata}%`;
+      document.getElementById("needsActionNote").innerHTML = `<span class="delta danger">${metrics.needsAction}</span> items need review or owner action`;
+      document.getElementById("freshnessNote").innerHTML = `<span class="delta warn">${metrics.freshness}%</span> freshness derived from source-visible dates`;
+      document.getElementById("connectorNote").innerHTML = `<span class="delta">${metrics.connectorState}</span> source MCP endpoints connected`;
+    }
+
+    async function refreshSignals() {
+      const status = document.getElementById("connectionStatus");
+      const button = document.getElementById("refreshButton");
+      const query = document.getElementById("queryInput").value.trim();
+      button.disabled = true;
+      button.textContent = "Loading MCP signals...";
+      status.textContent = "Calling MCP source endpoints through the local connector...";
+
+      try {
+        const response = await fetch(`/api/health-data?query=${encodeURIComponent(query)}`, { cache: "no-store" });
+        if (!response.ok) {
+          throw new Error(`Connector returned HTTP ${response.status}`);
+        }
+
+        const data = await response.json();
+        sources = data.sources;
+        journeys = data.journeys;
+        contentItems = data.contentItems;
+        actions = data.actions;
+        contentHub = data.contentHub || contentHub;
+        mcpTrackedMetrics = data.mcpTrackedMetrics || mcpTrackedMetrics;
+        repoHealth = data.repoHealth || [];
+        articleInventory = data.articleInventory || [];
+        topQualityArticles = data.topQualityArticles || [];
+        updateMetrics(data.metrics);
+        renderSources();
+        renderJourneys();
+        renderContentTable();
+        renderActions();
+        renderContentHub();
+        renderMcpTrackedMetrics();
+        renderFilterOptions();
+        renderRepoHealth();
+        renderArticleInventory();
+        const blockedSources = sources.filter((source) => !source.connected).map((source) => `${source.name}: ${source.sync}`);
+        status.textContent = blockedSources.length
+          ? `Live data loaded with source gaps. ${blockedSources.join(" | ")}`
+          : `Live data loaded from all configured MCP sources at ${new Date(data.generatedAt).toLocaleString()}.`;
+      } catch (error) {
+        status.textContent = `Unable to load live MCP data. Start the local connector with "node content-health-dashboard-server.js". Details: ${error.message}`;
+      } finally {
+        button.disabled = false;
+        button.textContent = "Refresh MCP signals";
+      }
+    }
+
+    renderSources();
+    renderJourneys();
+    renderContentTable();
+    renderActions();
+    renderContentHub();
+    renderMcpTrackedMetrics();
+    renderFilterOptions();
+    renderRepoHealth();
+    renderArticleInventory();
+    document.getElementById("refreshButton").addEventListener("click", refreshSignals);
+    document.getElementById("sourceFilter").addEventListener("change", (event) => {
+      dashboardFilters.source = event.target.value;
+      dashboardFilters.repo = "All";
+      renderFilterOptions();
+      renderRepoHealth();
+      renderArticleInventory();
+    });
+    document.getElementById("repoFilter").addEventListener("change", (event) => {
+      dashboardFilters.repo = event.target.value;
+      renderRepoHealth();
+      renderArticleInventory();
+    });
+    document.getElementById("sortFilter").addEventListener("change", (event) => {
+      dashboardFilters.sort = event.target.value;
+      renderRepoHealth();
+      renderArticleInventory();
+    });
+    document.getElementById("queryInput").addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        refreshSignals();
+      }
+    });
+    refreshSignals();
+  </script>
+</body>
+</html>
