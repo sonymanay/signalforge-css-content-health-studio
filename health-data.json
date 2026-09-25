@@ -1,0 +1,979 @@
+{
+  "generatedAt": "2026-09-25T21:10:19.251Z",
+  "query": "Microsoft 365 support known issues escalation troubleshooting customer support content",
+  "metrics": {
+    "overallHealth": 83,
+    "needsAction": 21,
+    "freshness": 50,
+    "connectorState": "2/4",
+    "metadata": 100,
+    "actionability": 90,
+    "articles": 20,
+    "repos": 9
+  },
+  "sources": [
+    {
+      "name": "LMC",
+      "status": "Healthy",
+      "className": "good",
+      "score": 85,
+      "pages": 10,
+      "stale": 10,
+      "critical": 0,
+      "sync": "2:10:18 PM",
+      "endpoint": "https://learn.microsoft.com/api/mcp",
+      "tool": "microsoft_docs_search",
+      "connected": true,
+      "authNeeded": false
+    },
+    {
+      "name": "SMC",
+      "status": "Healthy",
+      "className": "good",
+      "score": 80,
+      "pages": 10,
+      "stale": 9,
+      "critical": 0,
+      "sync": "2:10:18 PM",
+      "endpoint": "https://learn.microsoft.com/api/mcp/smc",
+      "tool": "microsoft_support_search",
+      "connected": true,
+      "authNeeded": false
+    },
+    {
+      "name": "Evergreen",
+      "status": "Auth needed",
+      "className": "danger",
+      "score": 0,
+      "pages": 0,
+      "stale": 0,
+      "critical": 1,
+      "sync": "Authorization required. Set the source token environment variable.",
+      "endpoint": "https://learn.microsoft.com/api/mcp/evergreen",
+      "tool": "",
+      "connected": false,
+      "authNeeded": true
+    },
+    {
+      "name": "CSS Wiki",
+      "status": "Not connected",
+      "className": "danger",
+      "score": 0,
+      "pages": 0,
+      "stale": 0,
+      "critical": 1,
+      "sync": "MCP endpoint not configured. Set CSS_WIKI_MCP_ENDPOINT and CSS_WIKI_MCP_TOOL.",
+      "endpoint": "",
+      "tool": "",
+      "connected": false,
+      "authNeeded": false
+    }
+  ],
+  "repoHealth": [
+    {
+      "source": "LMC",
+      "repo": "dynamics365",
+      "articles": 6,
+      "qualityScore": 75,
+      "status": "Watch",
+      "className": "warn",
+      "fresh": 0,
+      "staleOrMissing": 6,
+      "brokenLinks": 0,
+      "stateSummary": "Published: 4, Workaround: 2"
+    },
+    {
+      "source": "SMC",
+      "repo": "support/known-issues",
+      "articles": 4,
+      "qualityScore": 75,
+      "status": "Watch",
+      "className": "warn",
+      "fresh": 0,
+      "staleOrMissing": 4,
+      "brokenLinks": 0,
+      "stateSummary": "Workaround: 3, Known issue: 1"
+    },
+    {
+      "source": "SMC",
+      "repo": "support",
+      "articles": 4,
+      "qualityScore": 63,
+      "status": "Watch",
+      "className": "warn",
+      "fresh": 0,
+      "staleOrMissing": 4,
+      "brokenLinks": 0,
+      "stateSummary": "Published: 4"
+    },
+    {
+      "source": "LMC",
+      "repo": "microsoft-365",
+      "articles": 1,
+      "qualityScore": 75,
+      "status": "Watch",
+      "className": "warn",
+      "fresh": 0,
+      "staleOrMissing": 1,
+      "brokenLinks": 0,
+      "stateSummary": "Known issue: 1"
+    },
+    {
+      "source": "LMC",
+      "repo": "lifecycle",
+      "articles": 1,
+      "qualityScore": 75,
+      "status": "Watch",
+      "className": "warn",
+      "fresh": 0,
+      "staleOrMissing": 1,
+      "brokenLinks": 0,
+      "stateSummary": "Workaround: 1"
+    },
+    {
+      "source": "LMC",
+      "repo": "troubleshoot",
+      "articles": 1,
+      "qualityScore": 75,
+      "status": "Watch",
+      "className": "warn",
+      "fresh": 0,
+      "staleOrMissing": 1,
+      "brokenLinks": 0,
+      "stateSummary": "Published: 1"
+    },
+    {
+      "source": "LMC",
+      "repo": "partner-center",
+      "articles": 1,
+      "qualityScore": 75,
+      "status": "Watch",
+      "className": "warn",
+      "fresh": 0,
+      "staleOrMissing": 1,
+      "brokenLinks": 0,
+      "stateSummary": "Published: 1"
+    },
+    {
+      "source": "SMC",
+      "repo": "microsoft-365-activation-licensing",
+      "articles": 1,
+      "qualityScore": 75,
+      "status": "Watch",
+      "className": "warn",
+      "fresh": 0,
+      "staleOrMissing": 1,
+      "brokenLinks": 0,
+      "stateSummary": "Workaround: 1"
+    },
+    {
+      "source": "SMC",
+      "repo": "support/get-help",
+      "articles": 1,
+      "qualityScore": 75,
+      "status": "Watch",
+      "className": "warn",
+      "fresh": 0,
+      "staleOrMissing": 1,
+      "brokenLinks": 0,
+      "stateSummary": "Published: 1"
+    }
+  ],
+  "articleInventory": [
+    {
+      "id": "LMC-0",
+      "title": "Get help and support for Microsoft 365 Lighthouse",
+      "source": "LMC",
+      "repo": "microsoft-365",
+      "url": "https://learn.microsoft.com/microsoft-365/lighthouse/m365-lighthouse-get-help-and-support?view=o365-worldwide",
+      "excerpt": "# Get help and support for Microsoft 365 Lighthouse Several options are available if you need help. First, check to see if there are any known issues: 1. Review the current health of customer tenant services: 1.1. In the left navigation pane in [Lighthouse](ht",
+      "qualityScore": 75,
+      "freshness": "Missing",
+      "lastUpdated": "Not exposed",
+      "state": "Known issue",
+      "linkState": "OK",
+      "metadata": "Complete",
+      "actionability": "Actionable",
+      "pageViews": null,
+      "pageViewScore": 100,
+      "pageViewDisplay": "100 proxy",
+      "pageViewSource": "MCP relevance proxy"
+    },
+    {
+      "id": "LMC-1",
+      "title": "Office and Windows configuration support matrix",
+      "source": "LMC",
+      "repo": "lifecycle",
+      "url": "https://learn.microsoft.com/lifecycle/office-windows-configuration-matrix#connectivity-to-microsoft-365-cloud-services",
+      "excerpt": "# Office and Windows configuration support matrix ## Connectivity to Microsoft 365 cloud services Customers with a valid Microsoft 365 subscription or a license for an in-support non-subscription version of Office will continue to be able to open support cases",
+      "qualityScore": 75,
+      "freshness": "Missing",
+      "lastUpdated": "Not exposed",
+      "state": "Workaround",
+      "linkState": "OK",
+      "metadata": "Complete",
+      "actionability": "Actionable",
+      "pageViews": null,
+      "pageViewScore": 95,
+      "pageViewDisplay": "95 proxy",
+      "pageViewSource": "MCP relevance proxy"
+    },
+    {
+      "id": "LMC-2",
+      "title": "Managing technical support",
+      "source": "LMC",
+      "repo": "dynamics365",
+      "url": "https://learn.microsoft.com/dynamics365/business-central/dev-itpro/administration/manage-technical-support#escalating-support-issues-to-microsoft",
+      "excerpt": "# Managing technical support ## Escalating support issues to Microsoft Your company must be registered as a Microsoft partner, and it must have the *Advanced Support for Partners* (ASfP) or *Premier*[support plan](https://partner.microsoft.com/support/partners",
+      "qualityScore": 75,
+      "freshness": "Missing",
+      "lastUpdated": "Not exposed",
+      "state": "Published",
+      "linkState": "OK",
+      "metadata": "Complete",
+      "actionability": "Actionable",
+      "pageViews": null,
+      "pageViewScore": 90,
+      "pageViewDisplay": "90 proxy",
+      "pageViewSource": "MCP relevance proxy"
+    },
+    {
+      "id": "LMC-3",
+      "title": "Advanced search tips for finding Microsoft troubleshooting content",
+      "source": "LMC",
+      "repo": "troubleshoot",
+      "url": "https://learn.microsoft.com/troubleshoot/azure/general/search-tips-find-troubleshooting-content#other-sites",
+      "excerpt": "# Advanced search tips for finding Microsoft troubleshooting content ## Other sites Don't overlook these valuable resources! Visit these sites and search using their own search engines. **Forums**: 1. [TechNet forums](https://social.technet.microsoft.com/Forum",
+      "qualityScore": 75,
+      "freshness": "Missing",
+      "lastUpdated": "Not exposed",
+      "state": "Published",
+      "linkState": "OK",
+      "metadata": "Complete",
+      "actionability": "Actionable",
+      "pageViews": null,
+      "pageViewScore": 85,
+      "pageViewDisplay": "85 proxy",
+      "pageViewSource": "MCP relevance proxy"
+    },
+    {
+      "id": "LMC-4",
+      "title": "Escalate Support Issues to Microsoft",
+      "source": "LMC",
+      "repo": "dynamics365",
+      "url": "https://learn.microsoft.com/dynamics365/business-central/dev-itpro/administration/raise-support-case#submit-a-new-support-request-from-the-partner-center",
+      "excerpt": "# Escalate Support Issues to Microsoft ## Submit a new support request from the Partner Center You can also start the process from the Partner Center. Choose the customer you want to open a case on, and then follow the support request work flow. You're automat",
+      "qualityScore": 75,
+      "freshness": "Missing",
+      "lastUpdated": "Not exposed",
+      "state": "Published",
+      "linkState": "OK",
+      "metadata": "Complete",
+      "actionability": "Actionable",
+      "pageViews": null,
+      "pageViewScore": 80,
+      "pageViewDisplay": "80 proxy",
+      "pageViewSource": "MCP relevance proxy"
+    },
+    {
+      "id": "LMC-5",
+      "title": "Managing technical support",
+      "source": "LMC",
+      "repo": "dynamics365",
+      "url": "https://learn.microsoft.com/dynamics365/business-central/dev-itpro/administration/manage-technical-support#escalating-support-issues-to-microsoft",
+      "excerpt": "# Managing technical support ## Escalating support issues to Microsoft Your company must be registered as a Microsoft partner, and it must have the *Advanced Support for Partners* (ASfP) or *Premier*[support plan](https://partner.microsoft.com/support/partners",
+      "qualityScore": 75,
+      "freshness": "Missing",
+      "lastUpdated": "Not exposed",
+      "state": "Workaround",
+      "linkState": "OK",
+      "metadata": "Complete",
+      "actionability": "Actionable",
+      "pageViews": null,
+      "pageViewScore": 75,
+      "pageViewDisplay": "75 proxy",
+      "pageViewSource": "MCP relevance proxy"
+    },
+    {
+      "id": "LMC-6",
+      "title": "Customer service problems or report vulnerabilities to escalate to Microsoft",
+      "source": "LMC",
+      "repo": "partner-center",
+      "url": "https://learn.microsoft.com/partner-center/customers/escalating-to-microsoft",
+      "excerpt": "# Customer service problems or report vulnerabilities to escalate to Microsoft **Appropriate roles**: Admin agent | Sales agent | Helpdesk agent If you're unable to resolve an issue, you can escalate it to Microsoft by using: 1. Commercial issue support: Suppo",
+      "qualityScore": 75,
+      "freshness": "Missing",
+      "lastUpdated": "Not exposed",
+      "state": "Published",
+      "linkState": "OK",
+      "metadata": "Complete",
+      "actionability": "Actionable",
+      "pageViews": null,
+      "pageViewScore": 70,
+      "pageViewDisplay": "70 proxy",
+      "pageViewSource": "MCP relevance proxy"
+    },
+    {
+      "id": "LMC-7",
+      "title": "Technical support for Dynamics 365 Business Central",
+      "source": "LMC",
+      "repo": "dynamics365",
+      "url": "https://learn.microsoft.com/dynamics365/business-central/dev-itpro/technical-support#troubleshooting-and-support",
+      "excerpt": "# Technical support for Dynamics 365 Business Central ## Troubleshooting and support The Business Central administration center is your primary tool to support your customers. However, you can also sign in to the customer's Business Central as the delegated ad",
+      "qualityScore": 75,
+      "freshness": "Missing",
+      "lastUpdated": "Not exposed",
+      "state": "Published",
+      "linkState": "OK",
+      "metadata": "Complete",
+      "actionability": "Actionable",
+      "pageViews": null,
+      "pageViewScore": 65,
+      "pageViewDisplay": "65 proxy",
+      "pageViewSource": "MCP relevance proxy"
+    },
+    {
+      "id": "LMC-8",
+      "title": "Managing technical support",
+      "source": "LMC",
+      "repo": "dynamics365",
+      "url": "https://learn.microsoft.com/dynamics365/business-central/dev-itpro/administration/manage-technical-support#escalating-support-issues-to-microsoft",
+      "excerpt": "# Managing technical support ## Escalating support issues to Microsoft Sometimes the tenant has run into a problem that the partner can't resolve. In those cases, the delegated admin can use the Partner Center or the Business Central administration center to s",
+      "qualityScore": 75,
+      "freshness": "Missing",
+      "lastUpdated": "Not exposed",
+      "state": "Workaround",
+      "linkState": "OK",
+      "metadata": "Complete",
+      "actionability": "Actionable",
+      "pageViews": null,
+      "pageViewScore": 60,
+      "pageViewDisplay": "60 proxy",
+      "pageViewSource": "MCP relevance proxy"
+    },
+    {
+      "id": "LMC-9",
+      "title": "Escalate Support Issues to Microsoft",
+      "source": "LMC",
+      "repo": "dynamics365",
+      "url": "https://learn.microsoft.com/dynamics365/business-central/dev-itpro/administration/raise-support-case",
+      "excerpt": "# Escalate Support Issues to Microsoft It might happen that a Business Central online customer runs into a technical problem that the partner cannot resolve. In those cases, the delegated admin can use the Partner Center or the Business Central administration ",
+      "qualityScore": 75,
+      "freshness": "Missing",
+      "lastUpdated": "Not exposed",
+      "state": "Published",
+      "linkState": "OK",
+      "metadata": "Complete",
+      "actionability": "Actionable",
+      "pageViews": null,
+      "pageViewScore": 55,
+      "pageViewDisplay": "55 proxy",
+      "pageViewSource": "MCP relevance proxy"
+    },
+    {
+      "id": "SMC-0",
+      "title": "Fixes or workarounds for recent Office issues",
+      "source": "SMC",
+      "repo": "support/known-issues",
+      "url": "https://support.microsoft.com/support/known-issues/fixes-or-workarounds-for-recent-office-issues#contact-us",
+      "excerpt": "# Fixes or workarounds for recent Office issues ## Contact us If you can’t find the solution to your issue or need more help, please contact us so we can get you up and running. | | **Talk to support.**If you have a Microsoft 365 for home subscription, or you ",
+      "qualityScore": 75,
+      "freshness": "Missing",
+      "lastUpdated": "Not exposed",
+      "state": "Workaround",
+      "linkState": "OK",
+      "metadata": "Complete",
+      "actionability": "Actionable",
+      "pageViews": null,
+      "pageViewScore": 50,
+      "pageViewDisplay": "50 proxy",
+      "pageViewSource": "MCP relevance proxy"
+    },
+    {
+      "id": "SMC-1",
+      "title": "Fixes or workarounds for recent Office issues",
+      "source": "SMC",
+      "repo": "support/known-issues",
+      "url": "https://support.microsoft.com/support/known-issues/fixes-or-workarounds-for-recent-office-issues#windows",
+      "excerpt": "# Fixes or workarounds for recent Office issues ### Windows [Outlook](https://support.microsoft.com/support/known-issues/fixes-or-workarounds-for-recent-issues-in-classic-outlook-for-windows) [Word](https://support.microsoft.com/support/known-issues/fixes-or-w",
+      "qualityScore": 75,
+      "freshness": "Missing",
+      "lastUpdated": "Not exposed",
+      "state": "Workaround",
+      "linkState": "OK",
+      "metadata": "Complete",
+      "actionability": "Actionable",
+      "pageViews": null,
+      "pageViewScore": 45,
+      "pageViewDisplay": "45 proxy",
+      "pageViewSource": "MCP relevance proxy"
+    },
+    {
+      "id": "SMC-2",
+      "title": "Contact Microsoft customer support",
+      "source": "SMC",
+      "repo": "support",
+      "url": "https://support.microsoft.com/support/#south-america",
+      "excerpt": "# Contact Microsoft customer support ## Microsoft sales support ### South America | Country/Region | Country/Region code | Phone number | Toll| | --- | --- | --- | --- | | Argentina | +54 +54 | 11 6076 0010 (0) 800 222 9467 | Toll Toll Free | | Bolivia | +591 ",
+      "qualityScore": 50,
+      "freshness": "Missing",
+      "lastUpdated": "Not exposed",
+      "state": "Published",
+      "linkState": "OK",
+      "metadata": "Complete",
+      "actionability": "Needs clearer next step",
+      "pageViews": null,
+      "pageViewScore": 40,
+      "pageViewDisplay": "40 proxy",
+      "pageViewSource": "MCP relevance proxy"
+    },
+    {
+      "id": "SMC-3",
+      "title": "Microsoft Support",
+      "source": "SMC",
+      "repo": "support",
+      "url": "https://support.microsoft.com/#microsoft-365",
+      "excerpt": "# Microsoft Support ## Find solutions ### Microsoft 365 [#### Sign in to Microsoft 365](https://support.microsoft.com/en-us/accounts-billing/subscriptions/sign-in-to-microsoft-365)[#### Install Microsoft 365](https://support.microsoft.com/en-us/Office/lifecycl",
+      "qualityScore": 75,
+      "freshness": "Missing",
+      "lastUpdated": "Not exposed",
+      "state": "Published",
+      "linkState": "OK",
+      "metadata": "Complete",
+      "actionability": "Actionable",
+      "pageViews": null,
+      "pageViewScore": 35,
+      "pageViewDisplay": "35 proxy",
+      "pageViewSource": "MCP relevance proxy"
+    },
+    {
+      "id": "SMC-4",
+      "title": "Contact Microsoft customer support",
+      "source": "SMC",
+      "repo": "support",
+      "url": "https://support.microsoft.com/support/",
+      "excerpt": "# Contact Microsoft customer support The type of support Microsoft provides depends on the product you're calling about and if you have a product for home or for business use. It can also depend on if you want help for an issue with a service like OneDrive or ",
+      "qualityScore": 75,
+      "freshness": "Missing",
+      "lastUpdated": "Not exposed",
+      "state": "Published",
+      "linkState": "OK",
+      "metadata": "Complete",
+      "actionability": "Actionable",
+      "pageViews": null,
+      "pageViewScore": 30,
+      "pageViewDisplay": "30 proxy",
+      "pageViewSource": "MCP relevance proxy"
+    },
+    {
+      "id": "SMC-5",
+      "title": "Contact Microsoft customer support",
+      "source": "SMC",
+      "repo": "support",
+      "url": "https://support.microsoft.com/support/#microsoft-365-volume-licensing-support",
+      "excerpt": "# Contact Microsoft customer support ## Microsoft 365 volume licensing support For volume licensing support, open your Microsoft 365 admin center, select [Help & support](https://admin.cloud.microsoft/?#/support) and search for \"manage volume licensing\". If yo",
+      "qualityScore": 50,
+      "freshness": "Missing",
+      "lastUpdated": "Not exposed",
+      "state": "Published",
+      "linkState": "OK",
+      "metadata": "Complete",
+      "actionability": "Needs clearer next step",
+      "pageViews": null,
+      "pageViewScore": 25,
+      "pageViewDisplay": "25 proxy",
+      "pageViewSource": "MCP relevance proxy"
+    },
+    {
+      "id": "SMC-6",
+      "title": "Known issues with Office and Windows 10",
+      "source": "SMC",
+      "repo": "support/known-issues",
+      "url": "https://support.microsoft.com/support/known-issues/known-issues-with-office-and-windows-10",
+      "excerpt": "# Known issues with Office and Windows 10 Applies To Office 2016Office 2013 Last updated: February 2020 Note Microsoft 365 apps and services will not support Internet Explorer 11 starting August 17, 2021. [Learn more](https://aka.ms/AA97tsw). Please note that ",
+      "qualityScore": 75,
+      "freshness": "Missing",
+      "lastUpdated": "Not exposed",
+      "state": "Workaround",
+      "linkState": "OK",
+      "metadata": "Complete",
+      "actionability": "Actionable",
+      "pageViews": null,
+      "pageViewScore": 20,
+      "pageViewDisplay": "20 proxy",
+      "pageViewSource": "MCP relevance proxy"
+    },
+    {
+      "id": "SMC-7",
+      "title": "Fixes or workarounds for recent Office installation or activation issues",
+      "source": "SMC",
+      "repo": "microsoft-365-activation-licensing",
+      "url": "https://support.microsoft.com/microsoft-365-activation-licensing/fixes-or-workarounds-for-recent-office-installation-or-activation-issues#need-more-help",
+      "excerpt": "# Fixes or workarounds for recent Office installation or activation issues ## Need more help? | | **Talk to support.**If you have a Microsoft 365 for home subscription, or you purchased a one-time download of Office 2016, click the**Contact Us**link at the bot",
+      "qualityScore": 75,
+      "freshness": "Missing",
+      "lastUpdated": "Not exposed",
+      "state": "Workaround",
+      "linkState": "OK",
+      "metadata": "Complete",
+      "actionability": "Actionable",
+      "pageViews": null,
+      "pageViewScore": 15,
+      "pageViewDisplay": "15 proxy",
+      "pageViewSource": "MCP relevance proxy"
+    },
+    {
+      "id": "SMC-8",
+      "title": "Microsoft 365 troubleshooters",
+      "source": "SMC",
+      "repo": "support/get-help",
+      "url": "https://support.microsoft.com/support/get-help/microsoft-365-troubleshooters",
+      "excerpt": "# Microsoft 365 troubleshooters Get Help has troubleshooters for Microsoft 365 you can run for many common scenarios. These often help resolve issues without the need to contact support. If a troubleshooter is available for your issue, select Start to run that",
+      "qualityScore": 75,
+      "freshness": "Missing",
+      "lastUpdated": "Not exposed",
+      "state": "Published",
+      "linkState": "OK",
+      "metadata": "Complete",
+      "actionability": "Actionable",
+      "pageViews": null,
+      "pageViewScore": 10,
+      "pageViewDisplay": "10 proxy",
+      "pageViewSource": "MCP relevance proxy"
+    },
+    {
+      "id": "SMC-9",
+      "title": "Known issues with Office and Windows 10",
+      "source": "SMC",
+      "repo": "support/known-issues",
+      "url": "https://support.microsoft.com/support/known-issues/known-issues-with-office-and-windows-10#common-issues",
+      "excerpt": "# Known issues with Office and Windows 10 ## Common issues | Issue | Solution| | --- | --- | | Office documents open slower after Windows 10 Fall Creators Update | In Windows 10 Fall Creators Update, the active Antivirus product can dynamically scan Office doc",
+      "qualityScore": 75,
+      "freshness": "Missing",
+      "lastUpdated": "Not exposed",
+      "state": "Known issue",
+      "linkState": "OK",
+      "metadata": "Complete",
+      "actionability": "Actionable",
+      "pageViews": null,
+      "pageViewScore": 10,
+      "pageViewDisplay": "10 proxy",
+      "pageViewSource": "MCP relevance proxy"
+    }
+  ],
+  "topQualityArticles": [
+    {
+      "id": "LMC-0",
+      "title": "Get help and support for Microsoft 365 Lighthouse",
+      "source": "LMC",
+      "repo": "microsoft-365",
+      "url": "https://learn.microsoft.com/microsoft-365/lighthouse/m365-lighthouse-get-help-and-support?view=o365-worldwide",
+      "excerpt": "# Get help and support for Microsoft 365 Lighthouse Several options are available if you need help. First, check to see if there are any known issues: 1. Review the current health of customer tenant services: 1.1. In the left navigation pane in [Lighthouse](ht",
+      "qualityScore": 75,
+      "freshness": "Missing",
+      "lastUpdated": "Not exposed",
+      "state": "Known issue",
+      "linkState": "OK",
+      "metadata": "Complete",
+      "actionability": "Actionable",
+      "pageViews": null,
+      "pageViewScore": 100,
+      "pageViewDisplay": "100 proxy",
+      "pageViewSource": "MCP relevance proxy"
+    },
+    {
+      "id": "LMC-1",
+      "title": "Office and Windows configuration support matrix",
+      "source": "LMC",
+      "repo": "lifecycle",
+      "url": "https://learn.microsoft.com/lifecycle/office-windows-configuration-matrix#connectivity-to-microsoft-365-cloud-services",
+      "excerpt": "# Office and Windows configuration support matrix ## Connectivity to Microsoft 365 cloud services Customers with a valid Microsoft 365 subscription or a license for an in-support non-subscription version of Office will continue to be able to open support cases",
+      "qualityScore": 75,
+      "freshness": "Missing",
+      "lastUpdated": "Not exposed",
+      "state": "Workaround",
+      "linkState": "OK",
+      "metadata": "Complete",
+      "actionability": "Actionable",
+      "pageViews": null,
+      "pageViewScore": 95,
+      "pageViewDisplay": "95 proxy",
+      "pageViewSource": "MCP relevance proxy"
+    },
+    {
+      "id": "LMC-2",
+      "title": "Managing technical support",
+      "source": "LMC",
+      "repo": "dynamics365",
+      "url": "https://learn.microsoft.com/dynamics365/business-central/dev-itpro/administration/manage-technical-support#escalating-support-issues-to-microsoft",
+      "excerpt": "# Managing technical support ## Escalating support issues to Microsoft Your company must be registered as a Microsoft partner, and it must have the *Advanced Support for Partners* (ASfP) or *Premier*[support plan](https://partner.microsoft.com/support/partners",
+      "qualityScore": 75,
+      "freshness": "Missing",
+      "lastUpdated": "Not exposed",
+      "state": "Published",
+      "linkState": "OK",
+      "metadata": "Complete",
+      "actionability": "Actionable",
+      "pageViews": null,
+      "pageViewScore": 90,
+      "pageViewDisplay": "90 proxy",
+      "pageViewSource": "MCP relevance proxy"
+    },
+    {
+      "id": "LMC-3",
+      "title": "Advanced search tips for finding Microsoft troubleshooting content",
+      "source": "LMC",
+      "repo": "troubleshoot",
+      "url": "https://learn.microsoft.com/troubleshoot/azure/general/search-tips-find-troubleshooting-content#other-sites",
+      "excerpt": "# Advanced search tips for finding Microsoft troubleshooting content ## Other sites Don't overlook these valuable resources! Visit these sites and search using their own search engines. **Forums**: 1. [TechNet forums](https://social.technet.microsoft.com/Forum",
+      "qualityScore": 75,
+      "freshness": "Missing",
+      "lastUpdated": "Not exposed",
+      "state": "Published",
+      "linkState": "OK",
+      "metadata": "Complete",
+      "actionability": "Actionable",
+      "pageViews": null,
+      "pageViewScore": 85,
+      "pageViewDisplay": "85 proxy",
+      "pageViewSource": "MCP relevance proxy"
+    },
+    {
+      "id": "LMC-4",
+      "title": "Escalate Support Issues to Microsoft",
+      "source": "LMC",
+      "repo": "dynamics365",
+      "url": "https://learn.microsoft.com/dynamics365/business-central/dev-itpro/administration/raise-support-case#submit-a-new-support-request-from-the-partner-center",
+      "excerpt": "# Escalate Support Issues to Microsoft ## Submit a new support request from the Partner Center You can also start the process from the Partner Center. Choose the customer you want to open a case on, and then follow the support request work flow. You're automat",
+      "qualityScore": 75,
+      "freshness": "Missing",
+      "lastUpdated": "Not exposed",
+      "state": "Published",
+      "linkState": "OK",
+      "metadata": "Complete",
+      "actionability": "Actionable",
+      "pageViews": null,
+      "pageViewScore": 80,
+      "pageViewDisplay": "80 proxy",
+      "pageViewSource": "MCP relevance proxy"
+    }
+  ],
+  "journeys": [
+    {
+      "name": "Onboarding",
+      "score": 66,
+      "className": "warn"
+    },
+    {
+      "name": "Case triage",
+      "score": 100,
+      "className": "good"
+    },
+    {
+      "name": "Known issues",
+      "score": 66,
+      "className": "warn"
+    },
+    {
+      "name": "Escalation",
+      "score": 60,
+      "className": "warn"
+    },
+    {
+      "name": "Policy lookup",
+      "score": 55,
+      "className": "danger"
+    },
+    {
+      "name": "Resolution",
+      "score": 100,
+      "className": "good"
+    },
+    {
+      "name": "Handoff",
+      "score": 66,
+      "className": "warn"
+    }
+  ],
+  "mcpTrackedMetrics": [
+    {
+      "label": "Page views",
+      "status": "MCP proxy",
+      "value": "20 retrieved",
+      "detail": "Current MCP endpoints expose relevant content results, not raw page-view telemetry. This shows the number of live content items retrieved for the dashboard topic.",
+      "source": "LMC, SMC"
+    },
+    {
+      "label": "Page-view quality",
+      "status": "MCP proxy",
+      "value": "95%",
+      "detail": "Quality proxy based on metadata coverage and action-oriented guidance in the live MCP result set.",
+      "source": "LMC, SMC"
+    },
+    {
+      "label": "Cost avoidance",
+      "status": "Telemetry needed",
+      "value": "18 deflection candidates",
+      "detail": "MCP can identify support and known-issue candidates. Actual cost avoidance needs Content Hub analytics, case deflection, or support-cost telemetry.",
+      "source": "LMC: 10, SMC: 10, Evergreen: 0, CSS Wiki: 0"
+    },
+    {
+      "label": "Content opportunities",
+      "status": "MCP live",
+      "value": "21",
+      "detail": "Backlog proxy from stale/missing freshness signals, critical source gaps, and weak actionability signals.",
+      "source": "LMC, SMC"
+    },
+    {
+      "label": "Traffic sources",
+      "status": "MCP source attribution",
+      "value": "2/4",
+      "detail": "MCP currently attributes source-system coverage. LLM traffic, MVP calls, and external referrer attribution require Content Hub traffic telemetry.",
+      "source": "LMC: 10, SMC: 10, Evergreen: 0, CSS Wiki: 0"
+    },
+    {
+      "label": "Freshness signal",
+      "status": "MCP live",
+      "value": "50%",
+      "detail": "Computed from Last Updated metadata when available in the live MCP result excerpts.",
+      "source": "LMC, SMC"
+    },
+    {
+      "label": "Content consumption patterns",
+      "status": "MCP proxy",
+      "value": "20 topic matches",
+      "detail": "Shows which content appears for the current topic across connected MCP sources. True consumption patterns need page-view/session telemetry.",
+      "source": "LMC: 10, SMC: 10, Evergreen: 0, CSS Wiki: 0"
+    },
+    {
+      "label": "Source coverage",
+      "status": "MCP live",
+      "value": "2/4",
+      "detail": "How many configured MCP source systems are connected and contributing to the health model.",
+      "source": "LMC: Healthy, SMC: Healthy, Evergreen: Auth needed, CSS Wiki: Not connected"
+    }
+  ],
+  "contentItems": [
+    {
+      "title": "Get help and support for Microsoft 365 Lighthouse",
+      "source": "LMC",
+      "owner": "Unassigned",
+      "risk": "Medium",
+      "riskClass": "good",
+      "action": "Add freshness signal",
+      "actionMeaning": "Add or expose review metadata such as Last Updated, next review date, owner, and freshness SLA so CSS users know whether the guidance is current.",
+      "impact": "Known issue signal",
+      "evidence": [
+        "LMC MCP search returned this as a top result for the current dashboard topic.",
+        "Source health score: 85%.",
+        "No Last Updated metadata was detected in the returned content excerpt.",
+        "The excerpt contains action-oriented terms such as troubleshoot, workaround, configure, or resolve."
+      ],
+      "identifiedBy": "MCP relevance, freshness metadata, actionability terms, source health score, and known-issue/case-support signals",
+      "url": "https://learn.microsoft.com/microsoft-365/lighthouse/m365-lighthouse-get-help-and-support?view=o365-worldwide"
+    },
+    {
+      "title": "Office and Windows configuration support matrix",
+      "source": "LMC",
+      "owner": "Unassigned",
+      "risk": "Medium",
+      "riskClass": "good",
+      "action": "Add freshness signal",
+      "actionMeaning": "Add or expose review metadata such as Last Updated, next review date, owner, and freshness SLA so CSS users know whether the guidance is current.",
+      "impact": "Case support signal",
+      "evidence": [
+        "LMC MCP search returned this as a top result for the current dashboard topic.",
+        "Source health score: 85%.",
+        "No Last Updated metadata was detected in the returned content excerpt.",
+        "The excerpt contains action-oriented terms such as troubleshoot, workaround, configure, or resolve."
+      ],
+      "identifiedBy": "MCP relevance, freshness metadata, actionability terms, source health score, and known-issue/case-support signals",
+      "url": "https://learn.microsoft.com/lifecycle/office-windows-configuration-matrix#connectivity-to-microsoft-365-cloud-services"
+    },
+    {
+      "title": "Managing technical support",
+      "source": "LMC",
+      "owner": "Unassigned",
+      "risk": "Medium",
+      "riskClass": "good",
+      "action": "Add freshness signal",
+      "actionMeaning": "Add or expose review metadata such as Last Updated, next review date, owner, and freshness SLA so CSS users know whether the guidance is current.",
+      "impact": "High relevance result",
+      "evidence": [
+        "LMC MCP search returned this as a top result for the current dashboard topic.",
+        "Source health score: 85%.",
+        "No Last Updated metadata was detected in the returned content excerpt.",
+        "The excerpt contains action-oriented terms such as troubleshoot, workaround, configure, or resolve."
+      ],
+      "identifiedBy": "MCP relevance, freshness metadata, actionability terms, source health score, and known-issue/case-support signals",
+      "url": "https://learn.microsoft.com/dynamics365/business-central/dev-itpro/administration/manage-technical-support#escalating-support-issues-to-microsoft"
+    },
+    {
+      "title": "Fixes or workarounds for recent Office issues",
+      "source": "SMC",
+      "owner": "Unassigned",
+      "risk": "Medium",
+      "riskClass": "good",
+      "action": "Add freshness signal",
+      "actionMeaning": "Add or expose review metadata such as Last Updated, next review date, owner, and freshness SLA so CSS users know whether the guidance is current.",
+      "impact": "High relevance result",
+      "evidence": [
+        "SMC MCP search returned this as a top result for the current dashboard topic.",
+        "Source health score: 80%.",
+        "No Last Updated metadata was detected in the returned content excerpt.",
+        "The excerpt contains action-oriented terms such as troubleshoot, workaround, configure, or resolve."
+      ],
+      "identifiedBy": "MCP relevance, freshness metadata, actionability terms, source health score, and known-issue/case-support signals",
+      "url": "https://support.microsoft.com/support/known-issues/fixes-or-workarounds-for-recent-office-issues#contact-us"
+    },
+    {
+      "title": "Fixes or workarounds for recent Office issues",
+      "source": "SMC",
+      "owner": "Unassigned",
+      "risk": "Medium",
+      "riskClass": "good",
+      "action": "Add freshness signal",
+      "actionMeaning": "Add or expose review metadata such as Last Updated, next review date, owner, and freshness SLA so CSS users know whether the guidance is current.",
+      "impact": "High relevance result",
+      "evidence": [
+        "SMC MCP search returned this as a top result for the current dashboard topic.",
+        "Source health score: 80%.",
+        "No Last Updated metadata was detected in the returned content excerpt.",
+        "The excerpt contains action-oriented terms such as troubleshoot, workaround, configure, or resolve."
+      ],
+      "identifiedBy": "MCP relevance, freshness metadata, actionability terms, source health score, and known-issue/case-support signals",
+      "url": "https://support.microsoft.com/support/known-issues/fixes-or-workarounds-for-recent-office-issues#windows"
+    },
+    {
+      "title": "Contact Microsoft customer support",
+      "source": "SMC",
+      "owner": "Unassigned",
+      "risk": "Medium",
+      "riskClass": "good",
+      "action": "Add freshness signal",
+      "actionMeaning": "Add or expose review metadata such as Last Updated, next review date, owner, and freshness SLA so CSS users know whether the guidance is current.",
+      "impact": "High relevance result",
+      "evidence": [
+        "SMC MCP search returned this as a top result for the current dashboard topic.",
+        "Source health score: 80%.",
+        "No Last Updated metadata was detected in the returned content excerpt.",
+        "The excerpt has weak action-oriented guidance."
+      ],
+      "identifiedBy": "MCP relevance, freshness metadata, actionability terms, source health score, and known-issue/case-support signals",
+      "url": "https://support.microsoft.com/support/#south-america"
+    }
+  ],
+  "contentHub": {
+    "capturedFrom": "Kaushik Content Hub demo",
+    "benchmarkMetrics": [
+      {
+        "label": "Pull requests",
+        "value": "~600",
+        "detail": "PRs observed over the last three months"
+      },
+      {
+        "label": "CPM triage SLA",
+        "value": "95%",
+        "detail": "Triage SLA benchmark from the Content Hub PR dashboard"
+      },
+      {
+        "label": "SME reviews",
+        "value": "50%",
+        "detail": "Review coverage benchmark shown in the Content Hub demo"
+      },
+      {
+        "label": "Page views",
+        "value": "Tracked",
+        "detail": "Consumption and performance signal"
+      },
+      {
+        "label": "Page-view quality",
+        "value": "Tracked",
+        "detail": "Quality-adjusted view signal, not just raw traffic"
+      },
+      {
+        "label": "Cost avoidance",
+        "value": "Tracked",
+        "detail": "Business impact signal for content value"
+      },
+      {
+        "label": "Content opportunities",
+        "value": "Tracked",
+        "detail": "Backlog signal for gaps, improvements, and new content"
+      },
+      {
+        "label": "Traffic sources",
+        "value": "Tracked",
+        "detail": "Attribution across LLM traffic, MVP calls, and other sources"
+      }
+    ],
+    "healthSignals": [
+      "Freshness Checker",
+      "Repository-wide freshness scanning",
+      "Quality scan visibility",
+      "Content consumption patterns",
+      "Repository activity",
+      "ADO work item visibility",
+      "Pull request activity"
+    ],
+    "actionDestinations": [
+      {
+        "name": "Rubik",
+        "action": "Create or update articles and submit downstream PRs",
+        "useWhen": "New content or major rewrite is needed"
+      },
+      {
+        "name": "Content Mentor",
+        "action": "Select content, improve it, and use guided publishing workflows",
+        "useWhen": "Content needs assisted authoring, quality improvement, or publishing"
+      },
+      {
+        "name": "PR review",
+        "action": "Review checks, manage PR state, and resolve downstream validation findings",
+        "useWhen": "Content has entered repo workflow"
+      },
+      {
+        "name": "ADO",
+        "action": "Track work items, ownership, and backlog follow-through",
+        "useWhen": "Action needs assignment, sprint tracking, or dependency management"
+      },
+      {
+        "name": "Freshness Checker",
+        "action": "Run a rescan and identify stale content by repository",
+        "useWhen": "Freshness or review-date risk is detected"
+      }
+    ]
+  },
+  "actions": [
+    {
+      "label": "Route action to Rubik or Content Mentor",
+      "detail": "Use Rubik for article creation/PR submission and Content Mentor for assisted authoring, selection, and publishing workflows.",
+      "tag": "Action path"
+    },
+    {
+      "label": "Add Content Hub benchmarks",
+      "detail": "Track PR volume, CPM triage SLA, SME review coverage, page-view quality, cost avoidance, and content opportunities alongside MCP source health.",
+      "tag": "Metrics"
+    },
+    {
+      "label": "Connect gated sources",
+      "detail": "Evergreen and CSS Wiki require authorization or endpoint configuration before they can contribute to the model.",
+      "tag": "Needed"
+    },
+    {
+      "label": "Review high-risk content",
+      "detail": "Prioritize rows marked Critical or High, especially pages missing Last Updated metadata.",
+      "tag": "Today"
+    },
+    {
+      "label": "Assign content owners",
+      "detail": "MCP search results do not expose owners, so ownership should be joined from your governance inventory.",
+      "tag": "This week"
+    },
+    {
+      "label": "Add source metadata",
+      "detail": "Freshness and owner coverage become stronger when LMC, SMC, Evergreen, and CSS Wiki expose review dates and owners.",
+      "tag": "Next sprint"
+    }
+  ]
+}

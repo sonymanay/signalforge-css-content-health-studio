@@ -1350,6 +1350,20 @@
       document.getElementById("connectorNote").innerHTML = `<span class="delta">${metrics.connectorState}</span> source MCP endpoints connected`;
     }
 
+    async function loadHealthData(query) {
+      const liveResponse = await fetch(`/api/health-data?query=${encodeURIComponent(query)}`, { cache: "no-store" });
+      if (liveResponse.ok) {
+        return { data: await liveResponse.json(), mode: "live" };
+      }
+
+      const snapshotResponse = await fetch("./health-data.json", { cache: "no-store" });
+      if (!snapshotResponse.ok) {
+        throw new Error(`Live connector returned HTTP ${liveResponse.status}; static snapshot returned HTTP ${snapshotResponse.status}`);
+      }
+
+      return { data: await snapshotResponse.json(), mode: "snapshot" };
+    }
+
     async function refreshSignals() {
       const status = document.getElementById("connectionStatus");
       const button = document.getElementById("refreshButton");
@@ -1359,12 +1373,7 @@
       status.textContent = "Calling MCP source endpoints through the local connector...";
 
       try {
-        const response = await fetch(`/api/health-data?query=${encodeURIComponent(query)}`, { cache: "no-store" });
-        if (!response.ok) {
-          throw new Error(`Connector returned HTTP ${response.status}`);
-        }
-
-        const data = await response.json();
+        const { data, mode } = await loadHealthData(query);
         sources = data.sources;
         journeys = data.journeys;
         contentItems = data.contentItems;
@@ -1385,11 +1394,12 @@
         renderRepoHealth();
         renderArticleInventory();
         const blockedSources = sources.filter((source) => !source.connected).map((source) => `${source.name}: ${source.sync}`);
+        const dataMode = mode === "live" ? "Live data" : "Static shared snapshot";
         status.textContent = blockedSources.length
-          ? `Live data loaded with source gaps. ${blockedSources.join(" | ")}`
-          : `Live data loaded from all configured MCP sources at ${new Date(data.generatedAt).toLocaleString()}.`;
+          ? `${dataMode} loaded with source gaps. ${blockedSources.join(" | ")}`
+          : `${dataMode} loaded from all configured MCP sources at ${new Date(data.generatedAt).toLocaleString()}.`;
       } catch (error) {
-        status.textContent = `Unable to load live MCP data. Start the local connector with "node content-health-dashboard-server.js". Details: ${error.message}`;
+        status.textContent = `Unable to load dashboard data. Start the local connector with "node server.js" or publish health-data.json. Details: ${error.message}`;
       } finally {
         button.disabled = false;
         button.textContent = "Refresh MCP signals";
