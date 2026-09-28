@@ -5,7 +5,7 @@ const path = require("path");
 const { URL } = require("url");
 
 const PORT = Number(process.env.PORT || 8787);
-const DASHBOARD_FILE = path.join(__dirname, "content-health-dashboard-css.html");
+const DASHBOARD_FILE = path.join(__dirname, "index.html");
 const TELEMETRY_FILE = process.env.CONTENT_HEALTH_TELEMETRY_FILE || path.join(__dirname, "content-health-telemetry.json");
 
 const SOURCE_CONFIGS = [
